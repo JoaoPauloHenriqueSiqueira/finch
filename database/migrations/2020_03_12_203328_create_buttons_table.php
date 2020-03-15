@@ -20,10 +20,6 @@ class CreateButtonsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('buttons', function ($table) {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
-            $table->foreign('next_id')->references('id')->on('tasks')->onDelete('cascade');
-        });
     }
 
     /**
