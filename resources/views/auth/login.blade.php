@@ -1,43 +1,21 @@
 <!DOCTYPE html>
 <html>
+<!-- Lato Font -->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
 
-<head>
-    <title>Login</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <style type="text/css">
-        .box {
-            width: 600px;
-            margin: 0 auto;
-            border: 1px solid #ccc;
-        }
-    </style>
-</head>
+<link href="{{ asset('css/gallery-materialize.min.opt.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet" type="text/css">
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <body>
-    <br>
-    <br>
-    <br>
     @if(isset(Auth::user()->email))
     <script>
         window.location = "/main/successlogin";
     </script>
     @endif
-    @if ($message = Session::get('error'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
-    @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+
     <div class="valign-wrapper row login-box">
         <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
@@ -54,6 +32,21 @@
                             <label for="password">Senha </label>
                             <input type="password" name="password" class="form-control" />
                         </div>
+
+                        @if ($message = Session::get('error'))
+                        <div class="alert alert-danger alert-block red-text">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger red-text">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="card-action right-align">
