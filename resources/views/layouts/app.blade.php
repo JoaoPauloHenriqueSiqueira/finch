@@ -55,7 +55,29 @@
   </head>
 
   <body class="vsc-initialized">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <script>
+          M.toast({
+            html: '{{$error}}'
+          }, 5000);
+        </script>
+        @endforeach
+      </ul>
+    </div>
+    @endif
 
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+      <script>
+        M.toast({
+          html: '{{ session()->get("message")}}'
+        }, 5000);
+      </script>
+    </div>
+    @endif
     <!-- Navbar and Header -->
     <nav class="nav-extended nav">
       <div class="nav-background">
@@ -94,10 +116,10 @@
             <a class="tooltipped" href="{{ URL::route('home') }}" data-position='right' data-delay='50' data-tooltip="CRUD para as TAREFAS">Tarefas</a>
           </li>
           <li id="flows">
-          <a class="tooltipped"  href="{{ URL::route('flows') }}" data-position='right' data-delay='50' data-tooltip="Cria ou avança nos FLUXOS criados">Criar/Avançar fluxo</a>
+            <a class="tooltipped" href="{{ URL::route('flows') }}" data-position='right' data-delay='50' data-tooltip="Cria ou avança nos FLUXOS criados">Criar/Avançar fluxo</a>
           </li>
           <li id="list">
-          <a class="tooltipped" href="{{ URL::route('list') }}" data-position='right' data-delay='50' data-tooltip="Listagem de todos os FLUXOS e seus passos">Fluxos</a>
+            <a class="tooltipped" href="{{ URL::route('list') }}" data-position='right' data-delay='50' data-tooltip="Listagem de todos os FLUXOS e seus passos">Fluxos</a>
           </li>
         </ul>
       </div>

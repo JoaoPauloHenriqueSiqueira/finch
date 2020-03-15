@@ -2,30 +2,6 @@
 
 @section('content')
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <script>
-            M.toast({
-                html: '{{$error}}'
-            }, 5000);
-        </script>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-@if(session()->has('message'))
-<div class="alert alert-success">
-    <script>
-        M.toast({
-            html: '{{ session()->get("message")}}'
-        }, 5000);
-    </script>
-</div>
-@endif
-
 @foreach ($flows as $flow)
 @if($flow->taskAtual)
 <div id="{{$flow->id}}" class="grid-item z-depth-3">
