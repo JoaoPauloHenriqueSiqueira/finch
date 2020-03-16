@@ -30,7 +30,7 @@ class FlowsController extends Controller
     }
 
     /**
-     *Renderiza todos os fluxos não finalizados
+     * Render all flows not finished
      *
      * @return void
      */
@@ -47,7 +47,7 @@ class FlowsController extends Controller
     }
 
     /**
-     *Renderiza todos os flows
+     *Render all flows
      *
      * @return void
      */
@@ -63,7 +63,7 @@ class FlowsController extends Controller
     }
 
     /**
-     *Cria um novo flow
+     *Create a new flow
      *
      * @param Request $request
      * @return void
@@ -78,7 +78,7 @@ class FlowsController extends Controller
     }
 
     /**
-     *Atualiza o flow
+     *Update a flow
      *
      * @param Request $request
      * @return void
@@ -93,7 +93,7 @@ class FlowsController extends Controller
     }
 
     /**
-     *Deleta um flow
+     *Delete a specific flow
      *
      * @param Request $request
      * @return void
@@ -108,7 +108,7 @@ class FlowsController extends Controller
     }
 
     /**
-     *Captura tasks de um flow
+     *Get all tasks from a flow
      *
      * @param Request $request
      * @return void

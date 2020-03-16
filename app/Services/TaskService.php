@@ -36,6 +36,12 @@ class TaskService
         return $tasks;
     }
 
+    /**
+     * GEt type of a task
+     *
+     * @param [type] $type
+     * @return void
+     */
     public function getType($type)
     {
         return collect($this->get())->where('type_id', $type);
@@ -50,6 +56,12 @@ class TaskService
         return $this->namedButton($tasks);
     }
 
+    /**
+     * Name button task
+     *
+     * @param [type] $tasks
+     * @return void
+     */
     public function namedButton($tasks)
     {
         foreach ($tasks as $task) {
@@ -63,16 +75,34 @@ class TaskService
         return $tasks;
     }
 
+    /**
+     * FInd a register with a diferent id
+     *
+     * @param [type] $taskId
+     * @return void
+     */
     public function findNot($taskId)
     {
         return $this->repository->findNot($taskId);
     }
 
+    /**
+     * FUnction to search a task
+     *
+     * @param [type] $taskId
+     * @return void
+     */
     public function find($taskId)
     {
         return $this->repository->find($taskId);
     }
 
+    /**
+     * Save a task with a validation
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function save($request)
     {
         $taskId = array_get($request, "id");
@@ -87,7 +117,12 @@ class TaskService
         return redirect()->back()->with('message', 'Ocorreu algum erro');
     }
 
-
+    /**
+     * Remove specific task
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function delete($request)
     {
         $taskId = array_get($request, "id");

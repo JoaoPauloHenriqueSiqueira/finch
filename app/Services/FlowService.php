@@ -39,17 +39,33 @@ class FlowService
         }
         return $list;
     }
-
+    /**
+     * Get tasks specific flow
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function tasks($request)
     {
         return $this->repository->where(["id", array_get($request, "id")])->first();
     }
 
+    /**
+     * Get all tasks not finished
+     *
+     * @return void
+     */
     public function getNotFinished()
     {
         return $this->getLastTask($this->repository->where(["finish", 0]));
     }
 
+    /**
+     * Get last task
+     *
+     * @param [type] $flow
+     * @return void
+     */
     public function getLastTask($flow)
     {
         foreach ($flow as $v) {
@@ -76,11 +92,23 @@ class FlowService
         return $flow;
     }
 
+    /**
+     * FInd specific flow
+     *
+     * @param [type] $taskId
+     * @return void
+     */
     public function find($taskId)
     {
         return $this->repository->find($taskId);
     }
 
+    /**
+     * Create a flow
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function create($request)
     {
         $newData = [];
@@ -90,6 +118,12 @@ class FlowService
         return redirect()->back()->with('message', 'Registro criado/atualizado!');
     }
 
+    /**
+     * Update a flow
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function update($request)
     {
         $flow = $this->repository->find(array_get($request, "flow_id"));
@@ -110,6 +144,12 @@ class FlowService
         return redirect()->back()->with('message', 'Registro criado/atualizado!');
     }
 
+    /**
+     * Save a flow
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function save($request)
     {
         $response = $this->repository->save($request);
@@ -121,7 +161,12 @@ class FlowService
         return redirect()->back()->with('message', 'Ocorreu algum erro');
     }
 
-
+    /**
+     * Delete a specif flow
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function delete($request)
     {
         $taskId = array_get($request, "id");

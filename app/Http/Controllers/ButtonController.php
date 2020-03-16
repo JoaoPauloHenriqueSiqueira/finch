@@ -23,7 +23,7 @@ class ButtonController extends Controller
     }
 
     /**
-     * Cria ou atualiza um botão
+     * Create or update a button
      *
      * @param ButtonValidator $request
      * @return void
@@ -34,7 +34,7 @@ class ButtonController extends Controller
     }
 
     /**
-     *Remove um botão
+     * Remove a button
      *
      * @param Request $request
      * @return void
