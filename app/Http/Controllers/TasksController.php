@@ -23,7 +23,7 @@ class TasksController extends Controller
     }
 
     /**
-     * Função renderiza lista de tasks
+     * Render a page with tasks 
      *
      * @return array
      */
@@ -37,7 +37,7 @@ class TasksController extends Controller
     }
 
     /**
-     *Salva ou atualiza
+     *Save or create
      *
      * @param TaskPost $request
      * @return void
@@ -52,7 +52,7 @@ class TasksController extends Controller
     }
 
     /**
-     * Deleta task
+     * Delete task
      *
      * @param Request $request
      * @return void

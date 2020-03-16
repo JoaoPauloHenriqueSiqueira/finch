@@ -27,6 +27,12 @@ class ButtonService
         return $this->repository->all()->get();
     }
 
+    /**
+     * Save and validate Button
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function save($request)
     {
         $validated = $request->validated();
@@ -42,7 +48,12 @@ class ButtonService
         return redirect()->back()->with('message', 'Ocorreu algum erro');
     }
 
-
+    /**
+     * Delete specific button
+     *
+     * @param [type] $request
+     * @return void
+     */
     public function delete($request)
     {
         $taskId = array_get($request, "id");
